@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# coding=utf-8
 import pandas as pd
 import numpy as np
 import json
@@ -53,4 +55,50 @@ clean_tz[clean_tz == ''] = 'Unknown'
 tz_counts_clean = clean_tz.value_counts()
 #print tz_counts_clean[:10]
 #在虚拟环境下,matplotlib不能显示出来,推荐采用在命令行中直接 ipython --pylib然后运行本文件代码
-tz_counts_clean[:10].plot(kind='barh', rot=0)
+#tz_counts_clean[:10].plot(kind='barh', rot=0)
+
+result = Series([x.split()[0] for x in frame.a.dropna()])
+# print result[:5]
+# print  result.value_counts()[:8]
+
+cframe = frame[frame.a.notnull()]
+operating_system = np.where(cframe['a'].str.contains('Windows'), 'Windows', 'Not Windows')
+# print operating_system[:5]
+by_tz_os = cframe.groupby(['tz', operating_system])
+agg_counts = by_tz_os.size().unstack().fillna(0)
+# print agg_counts[:10]
+indexer = agg_counts.sum(1).argsort()
+# print indexer[:10]
+count_subset = agg_counts.take(indexer)[-10:]
+print count_subset
+# 这里画图的问题和上面那个一样
+#count_subset.plot(kind='barh', stacked=True)
+#normed_subset = count_subset.div(count_subset.sum(1), axis=0)
+#normed_subset.plot(kind='barh', stacked=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
