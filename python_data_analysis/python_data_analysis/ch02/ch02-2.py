@@ -3,7 +3,7 @@
 import pandas as pd
 
 
-#读取对应的数据,为表的格式
+# 读取对应的数据,为表的格式
 unames = ['user_id', 'gender', 'age', 'occupation', 'zip']
 user = pd.read_table('../../pydata-book-master/ch02/movielens/users.dat', sep='::', header=None, names=unames)
 
@@ -18,15 +18,16 @@ movies = pd.read_table('../../pydata-book-master/ch02/movielens/movies.dat', sep
 # print movies[:5]
 # print ratings
 
-#通过相同的属性将表合并在一起
+# 通过相同的属性将表合并在一起
 data = pd.merge(pd.merge(ratings, user), movies)
-#print data
+# print data
 # print data.ix[0]
 
-#原来的代码中为: rows='title' cols='gender' 对于现在的方法中的key不对应
-#现在的key为:pandas.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean', fill_value=None, margins=False, dropna=True, margins_name='All')
+# 原来的代码中为: rows='title' cols='gender' 对于现在的方法中的key不对应
+# 现在的key为:pandas.pivot_table(data, values=None, index=None, columns=None, aggfunc='mean',
+# fill_value=None, margins=False, dropna=True, margins_name='All')
 mean_ratings = data.pivot_table('rating', index=['title'], columns=['gender'], aggfunc='mean')
-#print mean_ratings[:5]
+# print mean_ratings[:5]
 
 ratins_by_title = data.groupby('title').size()
 # print ratins_by_title[:10]

@@ -92,7 +92,7 @@ diversity = top1k.groupby(['year', 'sex']).apply(get_quantile_count)
 diversity = diversity.unstack('sex')
 # print diversity.head()
 
-#注意下面的代码需要在ipython --pylab模式下运行
+# 注意下面的代码需要在ipython --pylab模式下运行
 # diversity.plot(title='Number of popular names in top 50%')
 
 get_last_letter = lambda x : x[-1]
@@ -131,5 +131,5 @@ filtered = top1k[top1k.name.isin(lesley_like)]
 table = filtered.pivot_table('births', index='year', columns='sex', aggfunc='sum')
 table = table.div(table.sum(1), axis=0)
 
-#下面的代码需要在ipython --pylab模式下面运行
+# 下面的代码需要在ipython --pylab模式下面运行
 # table.plot(style={'M': 'k-', 'F': 'k--'})
