@@ -43,6 +43,31 @@ obj3 = Series(sdata)
 
 # 用dict和list创建Series
 states = ['California', 'Ohio', 'Oregon', 'Texas']
+# 将第二个list作为数据标签,同时用数据标签在第一个series中查值
+# 如果有对应的数据标签,则为对应的值,如果没有数据标签,则为NaN: not a number
 obj4 = Series(sdata, states)
-print obj4
+# print obj4
+# 可以用isnull和notnull来检测缺失数据
+# null为True
+# print pd.isnull(obj4)
+# print obj4.isnull()
+# null为False
+# print obj4.notnull()
+# print pd.notnull(obj4)
+
+# 2个Series相加,则将数据标签相同的值相加
+# 即: 数据对齐
+# print obj3
+# print obj4
+# print obj3 + obj4
+
+# series对象本身和索引都有一个name属性
+obj4.name = 'population'
+obj4.index.name = 'state'
+# print obj4
+
+# series的索引可以通过赋值的方式修改
+# print obj
+obj.index = ['Bob', 'Steve', 'Jeff', 'Ryan']
+# print obj
 
