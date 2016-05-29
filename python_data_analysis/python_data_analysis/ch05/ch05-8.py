@@ -67,3 +67,16 @@ frame = DataFrame({'b': [4.3, 7, -3, 2], 'a': [0, 1, 0, 1], 'c': [-2, 5, 8, -2.5
 # min 使用整个分组的最小排名
 # max 使用整个分组的最大排名
 # first 按值在原始数据中出现的顺序分配排名
+
+# 带重复值的轴索引
+obj_recur = Series(range(5), index=['a', 'a', 'b', 'b', 'c'])
+# print obj_recur
+# 判断索引是否是唯一的
+# print obj_recur.index.is_unique
+# 对于重复的索引,访问索引返回的是一个Series,如果不是单独的索引,那么返回的是一个标量
+# print obj_recur['a']
+# print obj_recur['c']
+# 对于DataFrame也是一样
+df_recur = DataFrame(np.random.randn(4, 3), index=['a', 'a', 'b', 'b'])
+# print df_recur
+# print df_recur.ix['b']
