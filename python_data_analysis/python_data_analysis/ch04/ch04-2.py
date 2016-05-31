@@ -42,9 +42,9 @@ import numpy as np
 points = np.arange(-5, 5, 0.001)
 # meshegrid接受2个数组输入,然后生成2个二维矩阵,其中的值为数组对应的
 xs, ys = np.meshgrid(points, points)
-# print points
-# print xs
-# print ys
+print points
+print xs
+print ys
 
 # 下面的语句最好不要在虚拟环境中运行,推荐在ipython中运行
 # z = np.sqrt(xs **2 + ys ** 2)
@@ -64,55 +64,55 @@ result_python = [(x if c else y)
                  for x, y, c in zip(xarr, yarr, cond)]
 # 可以使用numpy的where函数
 result_numpy = np.where(cond, xarr, yarr)
-# print result_python
-# print result_numpy == result_python
+print result_python
+print result_numpy == result_python
 
 arr_rand = np.random.randn(4, 4)
-# print arr_rand
-# print np.where(arr_rand > 0, 2, -2)
-# print np.where(arr_rand > 0, 2, arr_rand)
+print arr_rand
+print np.where(arr_rand > 0, 2, -2)
+print np.where(arr_rand > 0, 2, arr_rand)
 
 arr_rand2 = np.random.randn(5, 4)
-# print arr_rand2.mean()
-# print np.mean(arr_rand2)
-# print arr_rand2.sum()
-# print np.sum(arr_rand2)
+print arr_rand2.mean()
+print np.mean(arr_rand2)
+print arr_rand2.sum()
+print np.sum(arr_rand2)
 # 对于上面调用和类似的函数, 可以指定一个axis参数, 用来指定是从那一维计算, 结果比原来的少一维
-# print arr_rand2.mean(axis=1)
-# print arr_rand2.mean(1)
-# print arr_rand2.sum(axis=0)
-# print arr_rand2.sum(0)
+print arr_rand2.mean(axis=1)
+print arr_rand2.mean(1)
+print arr_rand2.sum(axis=0)
+print arr_rand2.sum(0)
 
 # 类似cumsum, cumprod 之类的函数则不聚合, 产生的是中间结果的数组
 arr_rand3 = np.array([[0, 1, 2],
                       [3, 4, 5],
                       [6, 7, 8]])
-# print arr_rand3.cumsum(0)
-# print arr_rand3.cumsum(1)
-# print arr_rand3.cumprod(1)
+print arr_rand3.cumsum(0)
+print arr_rand3.cumsum(1)
+print arr_rand3.cumprod(1)
 
 # 用于bool型数组的方法
 arr_bool = np.random.randn(100)
-# print arr_bool
-# print (arr_bool > 0).sum()
+print arr_bool
+print (arr_bool > 0).sum()
 bools = np.array([False, False, True])
-# print bools.any()
-# print bools.all()
+print bools.any()
+print bools.all()
 
 # numpy的数组可以通过sort方法排序
 arr = np.random.randn(8)
-# print arr
+print arr
 arr.sort()
-# print arr
+print arr
 # 可以在多维数组上进行排序,只要指定axis
 arr = np.random.randn(5, 3)
-# print arr
+print arr
 arr.sort(1)
-# print arr
+print arr
 large_arr = np.random.randn(1000)
 large_arr.sort()
 # 中位数
-# print large_arr[int(0.05 * len(large_arr))]
+print large_arr[int(0.05 * len(large_arr))]
 
 # 惟一化和其他逻辑
 names = np.array(['wwx', 'zyf', 'qsy', 'zyh', 'wwx', 'father', 'wwx is other father'])
@@ -121,7 +121,7 @@ ints = np.array([1, 2, 3, 4, 1, 2, 3, 4, 5, 61, 2])
 print np.unique(ints)
 # 判断第一个数组的元素是否在在第二个数组
 values = np.array([6, 0, 0, 3, 2, 5, 6])
-# print np.in1d(values, [2, 3, 6])
+print np.in1d(values, [2, 3, 6])
 # 还有其他运算
 # unique(x) 返回x中的唯一的元素,同时有序
 # intersect1d(x, y) 计算x, y中的公共元素, 同时有序

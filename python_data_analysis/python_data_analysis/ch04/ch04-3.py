@@ -9,17 +9,17 @@ arr = np.arange(10)
 np.save("./the_array", arr)
 
 # 文件读取
-# print np.load('the_array.npy')
+print np.load('the_array.npy')
 
 # 将多个数组保存在一个压缩文件中,如果没有后缀的话,那么会默认加上npz
 np.savez('the_array', a=arr, b=arr)
 load_zip = np.load('the_array.npz')
-# print load_zip['b']
+print load_zip['b']
 
 # 载入文本文件,并指定分割符,保存的时候没有默认后缀
 arr_text = np.loadtxt('text.txt', delimiter=',')
 np.savetxt('text2.txt', arr_text)
-# print arr_text
+print arr_text
 
 # 线性代数
 x = np.array([[1., 2., 3.],
@@ -28,18 +28,18 @@ y = np.array([[6., 23.],
              [-1., 7.],
              [8., 9.]])
 # 矩阵乘法
-# print x.dot(y)
-# print np.dot(x, y) == x.dot(y)
+print x.dot(y)
+print np.dot(x, y) == x.dot(y)
 
 # numpy.linalg中的inv, qr
 X = np.random.randn(5, 5)
 mat = X.T.dot(X)
-# print mat
-# print inv(mat)
-# print mat.dot(inv(mat))
+print mat
+print inv(mat)
+print mat.dot(inv(mat))
 q, r = qr(mat)
-# print q
-# print r
+print q
+print r
 # 常用numpy.linalg
 # diag() 以一维数组的形式返回方针的对角线元素,或者将一个一维数组补成方阵(除了对角线外其他补0)
 # dot() 矩阵乘法
@@ -56,7 +56,7 @@ q, r = qr(mat)
 # 随机数生成
 # normal 标准正态分布
 samples = np.random.normal(size=(4, 4))
-# print samples
+print samples
 # np.random 比 python的random更快
 
 # numpy.random函数
