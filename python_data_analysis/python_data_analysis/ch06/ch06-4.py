@@ -54,3 +54,12 @@ for line in reader:
 # skipinitialspace 忽略分隔符后面的空白符, 默认为False
 # doublequote 如何处理字段内的引用符号。如果True,则双写。
 # escapechar 对分隔符进行转义的字符串
+
+# 要手工输出分隔符文件,可以使用csv.writer
+# 接受一个打开且可写的文件对象,以及跟csv.reader相同的那些语支和格式化选项
+with open('mydata.csv', 'w') as f:
+    writer = csv.writer(f, dialect=my_dialect)
+    writer.writerow(('one', 'two', 'three'))
+    writer.writerow(('1', '2', '3'))
+    writer.writerow(('4', '5', '6'))
+    writer.writerow(('7', '8', '9'))
