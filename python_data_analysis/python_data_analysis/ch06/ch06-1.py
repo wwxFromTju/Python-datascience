@@ -99,7 +99,7 @@ print resule_ex5_lack
 # nrows 需要读取的行数
 # iterator 返回一个TextParse以便逐块读取文件
 # chunksize 文件块的带小奥
-# skip_footer 需要忽略的行数,从后面算回来,是一个数,不能是list,最后一行是1,然后往上增加
+# skip_footer 需要忽略的行数,从后面算回来,是一个数,不能是list,最后一行是1,然后往上增加,是指忽略n到最后
 # verbose 打印各种解析器输出信息
 # encoding 用于unicode的文本编码格式
 # squeeze 如果数据解析后只有一行,则返回Series
