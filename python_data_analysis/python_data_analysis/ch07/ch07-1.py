@@ -54,3 +54,28 @@ right = DataFrame({'key1': ['foo', 'foo', 'bar', 'bar'],
                    'rval': [4, 5, 6, 7]})
 # 在on中通过list指定多个key合并
 print pd.merge(left, right, on=['key1', 'key2'], how='outer')
+
+# 在列列连接的时候,DataFrame对象的索引会被丢弃
+
+# 对于都有的列名,且没有拿去合并,这样保留下来容易混乱
+print pd.merge(left, right, on='key1')
+# 通过suffixes来显式指定新的列名
+print pd.merge(left, right, on='key1', suffixes=('_left', '_right'))
+
+print pd.merge(left=left, right=right,left_on='key1', right_on='key1')
+
+print pd.merge(left, right, left_index=True, on='key1')
+
+print pd.merge(left, right, right_index=True, on='key1')
+
+# left 参与合并左侧的DataFrame
+# right 参与合并右侧的DataFrame
+# how 有参数 inner, outer, left, right, 默认为inner
+# on 指定用于连接的列名, 必须存在左右2个DataFrame对象中。如果没有指定,且其他连接键也没有指定,则以left和right列名的交集作为连接键
+# left_on 左侧DataFrame中用于连接键的列
+# right_on 右侧DataFrame中用于连接键的列
+# left_index 将左侧的行索引用于其连接键
+# right_index 将右侧的行索引用于其连接键
+# sort 默认为True,, 根据连接键对合并后的数据进行排序。大量数据建议False
+# suffixes 字符串元组,用于追加到重叠列名的末尾, 默认为('_x', '_y'), 如左右两边都出现'data',而且key中没有'data',则会出现'data_x','data_y'
+# copy 默认为False, 可以在某些特殊情况下避免将数据复制到结果数据结构中。默认是总是复制
