@@ -22,3 +22,4 @@ print data.drop_duplicates(['k1'])
 
 # duplicated drop_duplicates默认是保留第一个出现的值组合。可以传入take_last=True来保留最后一个
 print data.drop_duplicates(['k1', 'k2'], take_last=True)
+print data.drop_duplicates(['k1', 'k2'], keep='last')
