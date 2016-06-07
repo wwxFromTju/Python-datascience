@@ -66,3 +66,14 @@ plt.plot(data, 'k--', label='Default')
 plt.plot(data, 'k--', drawstyle='steps-post', label='steps-post')
 # 贴上标签
 plt.legend(loc='best')
+
+# 使用过程型的pyplot接口
+# 面向对象的matplotlib API
+
+# 使用xlim调节x轴范围
+plt.xlim([0, 10])
+plt.xlim([0, 30])
+
+
+
+
