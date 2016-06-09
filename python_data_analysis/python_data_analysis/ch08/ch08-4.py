@@ -4,6 +4,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from io import StringIO
 from pandas import Series, DataFrame
 
 # 常见图形
@@ -17,3 +18,20 @@ pgon = plt.Polygon([[0.15, 0.15], [0.35, 0.4], [0.2, 0.6]], color='g', alpha=0.5
 ax.add_patch(rect)
 ax.add_patch(circ)
 ax.add_patch(pgon)
+
+
+# 保存图标
+plt.savefig('figpath.svg')
+# 指定对应的dip和设置bbox_inches:可以去掉图标周围的白边
+plt.savefig('figpath2.svg', dip=400, bbox_inches='tight')
+
+# 可以将文件保存到任意的文件型对象
+# buffertemp = StringIO()
+# plt.savefig(buffertemp)
+# plot_data = buffertemp.getvalue()
+
+# Figure.savefig() 选项
+# fname 路径名的字符串或者Python的文件型对象。图像格式由扩张名推断
+# dpi (每英寸点数)图像分辨率, 默认100
+# facecolor/edgecolor 图像的背景色, 默认为w白色
+# bbox_inches 图表需要保存的部分。如果设置为tight,则剪除图表周围的空白部分
