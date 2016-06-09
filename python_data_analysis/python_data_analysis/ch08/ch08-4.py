@@ -35,3 +35,16 @@ plt.savefig('figpath2.svg', dip=400, bbox_inches='tight')
 # dpi (每英寸点数)图像分辨率, 默认100
 # facecolor/edgecolor 图像的背景色, 默认为w白色
 # bbox_inches 图表需要保存的部分。如果设置为tight,则剪除图表周围的空白部分
+
+
+# matplotlib 配置
+# 可以自定义图像大小/subplot边距/配色方案/字体大小/网格类型等等
+# 修改默认全局的图像默认大小设置为10x10, 第一个参数为希望自定义的对象
+plt.rc('figure', figsize=(10, 10))
+# 可以带上一些列的关键字
+font_options = {'family': 'monospace',
+                'weight': 'bold',
+                'size': 10}
+plt.rc('font', **font_options)
+
+# 也可以配置matplotlibrc,当使用matplotlib会加载该文件
