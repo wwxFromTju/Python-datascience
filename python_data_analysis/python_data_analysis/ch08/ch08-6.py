@@ -26,3 +26,10 @@ df.plot(kind='barh', stacked=True, alpha=0.5)
 # 可以使用value_counts图形化显示Series各值的出现频率
 data.value_counts().plot(kind='bar')
 
+tips = pd.read_csv('tips.csv')
+party_counts = pd.crosstab(tips.day, tips.size1)
+print party_counts
+party_counts = party_counts.ix[:, 2:5]
+party_pcts = party_counts.div(party_counts.sum(1).astype(float), axis=0)
+print party_pcts
+party_pcts.plot(kind='bar', stacked=True)
