@@ -3,6 +3,7 @@
 
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 from pandas import Series, DataFrame
 
 # 直方图(histogram)和密度图
@@ -19,3 +20,4 @@ comp2 = np.random.normal(10, 2, size=200)  # N(10, 4)
 values = Series(np.concatenate([comp1, comp2]))
 values.hist(bins=100, alpha=0.3, color='k', normed=True)
 values.plot(kind='kde', style='k--')
+
