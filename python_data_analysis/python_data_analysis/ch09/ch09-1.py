@@ -62,3 +62,17 @@ grouped = df.groupby(df.dtypes, axis=1)
 print dict(list(grouped))
 
 
+# 选取一个或一组列
+# 对于DataFrame产生的GroupBy对象,可以使用一个(字符串)/一组(字符串)列名索引
+# 等价于df['data1'].groupby(df['key1'])
+print df.groupby('key1')['data1']
+# 等价于df[['data2]].groupby(df['key1'])
+print df.groupby('key1')[['data2']]
+
+# 计算data2列的平均值
+# 返回一个已经分组好的DataFrame(如果传入的是list或者数组)或者Series(如果传入的是标量形式的单个列名)
+print df.groupby(['key1', 'key2'])[['data2']].mean()
+
+s_grouped = df.groupby(['key1', 'key2'])['data2']
+print s_grouped
+print s_grouped.mean()
