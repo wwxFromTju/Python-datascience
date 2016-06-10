@@ -39,3 +39,26 @@ print df.groupby(['key1', 'key2']).mean()
 
 # 返回对应分组的大小
 print df.groupby(['key1', 'key2']).size()
+
+
+# 对分组进行迭代
+for name, group in df.groupby('key1'):
+    print name
+    print group
+
+# 多重键 第一个元素是由键值组成的元组
+for (k1, k2), group in df.groupby(['key1', 'key2']):
+    print k1, k2
+    print group
+
+# 转换成字典
+pieces = dict(list(df.groupby('key1')))
+print pieces['b']
+
+# groupby 默认是在axis=0上进行分组,可以设置在另外的轴上面进行分组
+print df.dtypes
+# 通过dtype对列进行分组
+grouped = df.groupby(df.dtypes, axis=1)
+print dict(list(grouped))
+
+
