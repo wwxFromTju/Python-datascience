@@ -22,3 +22,11 @@ print by_column.sum()
 map_series = Series(mapping)
 print map_series
 print people.groupby(map_series, axis=1).count()
+
+
+# 通过函数进行分组,以返回的值进行分组的依据
+print people.groupby(len).sum()
+
+# 混合使用分组依据
+key_list = ['one', 'one', 'one', 'two', 'two']
+print people.groupby([len, key_list]).min()
