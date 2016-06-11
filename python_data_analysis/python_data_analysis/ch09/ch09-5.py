@@ -26,6 +26,7 @@ print k1_means
 print pd.merge(df, k1_means, left_on='key1', right_index=True)
 
 
+# transform相对严格,传入函数只能产生2种结果: 一个是可以广播的标量值(np.nan)或者产生一个相同大小的结果数组
 people = DataFrame(np.random.randn(5, 5),
                    columns=['a', 'b', 'c', 'd', 'e'],
                    index=['Joe', 'Steve', 'Wes', 'Jim', 'Travis'])
