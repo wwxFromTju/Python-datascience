@@ -30,3 +30,34 @@ print ts.index.dtype
 # DatetimeIndex中各个标量值是pandas的Timestamp对象
 stamp = ts.index[0]
 print stamp
+
+
+# 索引, 选取, 子集构造
+# TimeSeries是Series的子类(现在被处理在Series了), 所以在索引和数据选取方面行为一样
+stamp = ts.index[2]
+print ts[stamp]
+
+# 直接传入可以解释为日期的字符串
+print ts['1/10/2011']
+print ts['20110110']
+
+# 对于较长的时间序列, 只传入年或年月即可
+longer_ts = Series(np.random.randn(1000), index=pd.date_range('1/1/2000', periods=1000))
+print longer_ts
+# 选出2001年
+print longer_ts['2001']
+
+# 通过日期进行切片, 只对规则Series有效
+print ts[datetime(2011, 1, 7):]
+
+# 大部分时间序列是按照时间先后排序的, 所以也可以用不存在的时间戳来指定切片的范围
+print ts['1/6/2011': '1/11/2011']
+# 等价于
+print ts.truncate(after='1/11/2011', before='1/6/2011')
+
+# 同样操作可以作用于DataFrame
+dates = pd.date_range('1/1/2000', periods=100, freq='W-WED')
+long_df = DataFrame(np.random.randn(100, 4),
+                    index=dates,
+                    columns=['Colorado', 'Texas', 'New York', 'Ohio'])
+print long_df.ix['5-2001']
