@@ -1,21 +1,21 @@
 #!/usr/bin/env python
 # encoding=utf-8
-# 这一章的代码是在ipython下运行的,所以一下代码建议复制到ipython下运行
+# 这一章的代码是在ipython下运行的,所以以下代码建议复制到ipython下运行
 
 import numpy as np
 from IPython.core.debugger import Pdb
 import sys
 import datetime
 
+
 def add_numbers(a, b):
-    '''
+    """
     这里是文档注释
     :param a:
     :param b:
     :return: a+b
-    '''
-
-    return  a + b
+    """
+    return a + b
 
 
 def set_trace():
@@ -32,13 +32,13 @@ def f(x, y, z=1):
     return tmp / z
 
 
-#这里可以方便地使用pdb
+# 这里可以方便地使用pdb
 debug(f, 1, 2, z=3)
 
-#这里用ipython的run运行这个脚本文件的时候, 会自己在这里停
-#pdf.set_trace
+# 这里用ipython的run运行这个脚本文件的时候, 会自己在这里停
+# pdf.set_trace
 set_trace()
-data = {i : np.random.randn() for i in range(7)}
+data = {i: np.random.randn() for i in range(7)}
 # print data
 
 # 在ipython可以通过tab键自动补全
@@ -160,7 +160,7 @@ a = np.random.randn(100,100)
 # w where : 打印当前的完整栈跟踪
 
 
-#通过ipython notebook --pylab=inline 来启动notebook,同时包含matplotlib
+# 通过ipython notebook --pylab=inline 来启动notebook,同时包含matplotlib
 
 # python(ipython) 为 "一次加载"
 # 即在import xxx 时候, xxx中的代码会被执行, 其中所有的变量, 函数, 引入项, 都会被保存在一个新建的xxx模块命名空间
