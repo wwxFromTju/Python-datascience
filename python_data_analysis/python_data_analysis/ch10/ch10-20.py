@@ -27,6 +27,6 @@ print annual_frame.resample('Q-DEC', convention='start').ffill()
 # 由于是时间区间, 不满足下面的频率异常, 主要是影响按季, 年, 周计算的频率, 例如Q-MAR定义的时间区间,只能生采样为A-MAR, A-JUN, A-SEP, A-DEC
 # 在降采样中, 目标频率必须是源频率的子时期(subperiod)
 # 在升采样中, 目标频率必须是源频率的超时期(superperiod)
-print annual_frame.resample('Q-MAR').ffill(2    )
+print annual_frame.resample('Q-MAR').ffill()
 
 

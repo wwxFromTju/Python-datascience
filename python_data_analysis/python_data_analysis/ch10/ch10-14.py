@@ -25,5 +25,3 @@ print ts2.to_period('M')
 pts = ts.to_period()
 print pts
 print pts.to_timestamp(how='end')
-
-
