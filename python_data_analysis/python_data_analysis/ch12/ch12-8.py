@@ -57,6 +57,6 @@ def demean_axis(arr, axis=0):
     # 下面这些一般化的东西类似于N维的[:, :, np.newaxis]
     indexer= [slice(None)] * arr.ndim
     indexer[axis] = np.newaxis
-    return arr - means[indexerg]
+    return arr - means[indexer]
 
 
